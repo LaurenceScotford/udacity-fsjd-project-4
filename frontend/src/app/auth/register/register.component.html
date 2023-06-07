@@ -1,0 +1,31 @@
+<div class="log-reg-container">
+    <div class="register-container">
+        <h2>Register for a new account</h2>
+        <div class="form-margin">
+            <form #regForm="ngForm" (ngSubmit)="onSubmitRegister()">
+                <div class="form-field">
+                    <label for="firstname">First name</label>&nbsp;<span *ngIf="firstname.touched && firstname.invalid" class="error">is required!</span><br>
+                    <input type="text" name="firstname" id="firstname" [(ngModel)]="fname" required #firstname="ngModel">
+                </div>
+                <div class="form-field">
+                    <label for="lastname">Last name</label>&nbsp;<span *ngIf="lastname.touched && lastname.invalid" class="error">is required!</span><br>
+                    <input type="text" name="lastname" id="lastname" [(ngModel)]="lname" required #lastname="ngModel">
+                </div>
+                <div class="form-field">
+                    <label for="regusername">Username</label>&nbsp;
+                    <span *ngIf="regusername.touched && regusername.invalid" class="error">is required!</span>
+                    <span *ngIf="runame.length && !uname_available" class="error">is not available! Try another...</span>
+                    <br>
+                    <input type="text" name="regusername" id="regusername" [(ngModel)]="runame" required #regusername="ngModel" (input)="onUsernameInput()">
+                </div>
+                <div class="form-field">
+                    <label for="regpassword">Password</label>&nbsp;<span *ngIf="regpassword.touched && regpassword.invalid"  class="error">is required!</span><br>
+                    <input type="password" name="regpassword" id="regpassword" [(ngModel)]="rpword" required #regpassword="ngModel">
+                </div>
+                <button type="submit" [disabled]="regusername.invalid || regpassword.invalid">Submit</button>
+            </form>
+            <p>Already have an account? <a [routerLink]="['/login']">Select this link to login</a></p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="image" *ngIf="product">
+        <img src="{{ product.url }}">
+        <div 
+            *ngIf="product && product.id && inCart !== 0" 
+            class="incart"
+        >{{ inCart }} in cart</div>
+    </div>
+    <div class="detail-container" *ngIf="product">
+        <p class="detail-item product-title">{{ product.name }}</p>
+        <p class="detail-item">£{{ product.price }}</p>
+        <p class="detail-item">{{ product.description }}</p>
+        <select 
+            class="select-input detail-item" 
+            name="quantity" 
+            id="quantity" 
+            [(ngModel)]="quantity"
+        >
+            <option 
+                *ngFor="let number of [1,2,3,4,5,6,7,8,9,10]" 
+                value="{{ number }}"
+            >{{ number }}</option>
+        </select>
+        <button class="detail-item" (click)="addToCart()">Add to cart</button>
+        <a
+            class="detail-item"
+            [routerLink]="['/product-list']"
+        ><mat-icon
+            aria-hidden="false"
+            aria-label="Back arrow"
+        >arrow_back</mat-icon>Return to the product list</a>
+    </div>
+</div>

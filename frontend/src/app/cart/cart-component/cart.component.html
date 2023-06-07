@@ -1,0 +1,45 @@
+<div class="cart-container">
+    <div *ngIf="cartItems.length; else emptyCartMessage"class="cart-container">
+        <div class="cart-panel">
+            <app-cart-product 
+                *ngFor="let item of cartItems" 
+                class="cart-item" 
+                [item]="item" 
+                (quantityChangeEvent)="onQuantityChange($event)"
+            ></app-cart-product>
+            <div class="total">Total: £{{cartTotal}}</div>
+            <div class="empty-button" (click)="onEmptyCart()"><button>Empty Cart</button></div>
+        </div>
+        <div class="form-container" *ngIf="isLoggedIn; else loginRegisterMessage">
+            <h2>Checkout</h2>
+            <div class="form-field">
+                <label for="name">Recipient's full name</label>&nbsp;<span *ngIf="name.touched && name.invalid" class="error">is required and must be at least 3 characters!</span><br>
+                <input type="text" name="name" id="name" [(ngModel)]="fullname" placeholder="(minimum 3 characters)" minlength="3" required #name="ngModel">
+            </div>
+            <div class="form-field">
+                <label for="address">Delivery Address</label>&nbsp;<span *ngIf="address.touched && address.invalid"  class="error">is required and must be at least 6 characters!</span><br>
+                <textarea name="address" id="address" [(ngModel)]="addr" placeholder="(minimum 6 characters)" minlength="6" required #address="ngModel"></textarea>
+            </div>
+            <div class="form-field">
+                <label for="cardnumber">Credit card number</label>&nbsp;<span *ngIf="cardnumber.touched && cardnumber.invalid" class="error">is required and must be 16 digits!</span><br>
+                <input type="text" name="cardnumber" id="cardnumber" [(ngModel)]="cardnum" placeholder="(16 digit number)" minlength="16" maxlength="16" pattern="[0-9]{16,16}$" required #cardnumber="ngModel">
+            </div>
+            <p class="conf-msg">We'll never share your payment details with anyone else.</p>
+            <button type="submit" [disabled]="name.invalid || address.invalid || cardnumber.invalid" (click)="onSubmitOrder()">Submit</button>
+        </div>
+        <ng-template #loginRegisterMessage>
+            <div class="loginMessage">You must be logged in before you can checkout your cart!</div>
+        </ng-template>
+    </div>
+    <ng-template #emptyCartMessage>
+        <div 
+        class="empty-cart-message">
+            <p>Your cart is empty!</p>
+            <p class="link"><a [routerLink]="['/product-list']"><mat-icon 
+                aria-hidden="false" 
+                aria-label="Back arrow"
+            >arrow_back</mat-icon>Return to the product list</a>
+            </p>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,18 @@
+.message {
+    color: white;
+    background-color: white;
+    text-align: center;
+    padding: 0.5em 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.confirmation {
+    background-color: #00c853;
+}
+
+.warning {
+    background-color: #ff1744;
+}

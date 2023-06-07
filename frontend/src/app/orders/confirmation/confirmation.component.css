@@ -1,0 +1,51 @@
+table {
+  margin: 0 auto;
+}
+
+tr {
+  text-align: left;
+}
+
+td {
+  padding-right: 0.5em;
+}
+
+mat-icon {
+  font-size: 1em;
+  vertical-align: -0.8em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1a237e;
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4%;
+  color: #3f51b5;
+}
+
+.confirmation-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-header {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.confirmation-item {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,9 @@
+<div
+    class="message"
+    *ngIf="messageType !== 'none' && message.length"
+    [class.confirmation]="messageType === 'confirm'"
+    [class.warning]="messageType === 'warn'"
+>
+    {{datetime | date:'MMM d, y h:mm a' }}:
+    {{ message }}
+</div>

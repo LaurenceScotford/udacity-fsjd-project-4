@@ -1,0 +1,20 @@
+<div class="log-reg-container">
+    <div class="login-container">
+        <h2>Login to existing account</h2>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin()">
+            <div class="form-margin">
+                <div class="form-field">
+                    <label for="username">Username</label>&nbsp;<span *ngIf="username.touched && username.invalid" class="error">is required!</span><br>
+                    <input type="text" name="username" id="nuserame" [(ngModel)]="uname" required #username="ngModel">
+                </div>
+                <div class="form-field">
+                    <label for="password">Password</label>&nbsp;<span *ngIf="password.touched && password.invalid"  class="error">is required!</span><br>
+                    <input type="password" name="password" id="password" [(ngModel)]="pword" required #password="ngModel">
+                </div>
+                <button type="submit" [disabled]="username.invalid || password.invalid">Submit</button>
+            </div>
+        </form>
+        <p>Don't have an account yet? <a [routerLink]="['/register']">Select this link to register</a></p>
+    </div>
+</div>
+

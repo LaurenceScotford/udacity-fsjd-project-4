@@ -1,0 +1,97 @@
+img {
+  border-radius: 10px;
+  width: 320px;
+}
+
+.select-input {
+  width: 108px; 
+  margin-bottom: 8px;
+}
+
+.container {
+  margin: 3em auto;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-top: 64px;
+}
+
+.detail-item {
+  color: #1a237e;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+button.detail-item {
+  color: white;
+}
+
+.back-link {
+  margin-top: 8px;
+}
+
+.select-input {
+  width: 40%;
+  border: none;
+  background-color: #e8eaf6;
+  color: #1a237e;
+  padding: 0.5em;
+}
+
+button {
+  width: 40%;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 5%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+button:hover {
+  background-color: #1a237e;
+  cursor:pointer;
+}
+
+mat-icon {
+  font-size: 1em;
+  vertical-align: -0.8em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1a237e;
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.product-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.image {
+  position: relative;
+}
+
+.incart {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding: 0.25em 1em  0.25em 0.5em;
+  background-color: grey;
+  color: white;
+  border-radius: 0 0.75em 0.75em 0;
+  font-size: 1.5em;
+}

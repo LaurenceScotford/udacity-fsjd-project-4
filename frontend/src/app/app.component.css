@@ -1,0 +1,45 @@
+.header {
+  text-align: center;
+  background: #3f51b5;
+  color: #fff;
+  padding: 12px;
+  font-size: 1.5em;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 1em auto 0.5em auto;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c5cae9;
+  cursor:pointer;
+}
+
+a:not(:last-child):after {
+  content: " | ";
+  }
+
+mat-icon {
+  font-size: 1em;
+  vertical-align: -0.25em;
+  color: silver;
+}
+
+.activecart {
+  color: white;
+}
+
+.activelink {
+  text-decoration: underline;
+}
+
+router-outlet {
+    max-width: 1024px;
+    margin: 0 auto;
+}

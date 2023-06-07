@@ -1,0 +1,28 @@
+<header class="header">
+    <h1>MyStore</h1>
+    <nav>
+        <a routerLink = "/"><span 
+            [class.activelink]="currentRoute === 'product-list'"
+        >Product List</span></a>
+        <a routerLink="/cart"><span
+            [class.activelink]="currentRoute === 'cart'"
+        >Cart</span><mat-icon 
+            aria-hidden="false" 
+            aria-label="Shopping cart icon" 
+            [class.activecart]="cartHasItems"
+        >shopping_cart</mat-icon></a>
+        <a 
+            routerLink="/login" 
+            *ngIf="!isLoggedIn; else loggedIn"
+        ><span 
+            [class.activelink]="currentRoute === 'login'"
+        >Login</span></a>
+        <a 
+            routerLink="/register" 
+            *ngIf="!isLoggedIn"
+        ><span [class.activelink]="currentRoute === 'register'">Register</span></a>
+        <ng-template #loggedIn><a (click)="logout()">Logout {{username}}</a></ng-template>
+    </nav>
+</header>
+<app-message></app-message>
+<router-outlet></router-outlet>

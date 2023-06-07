@@ -1,1 +1,50 @@
-node_modules
+# Exclude Visual Code workspace
+*.code-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Exclude IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Exclude node modules
+**/node_modules
+npm-debug.log
+yarn-error.log
+
+# Exclude compiled files
+**/dist
+**/tmp
+**/out-tsc
+**/bazel-out
+
+# Exclude protected files
+.env
+
+# Exclude built database
+**/data
+
+# Exclude zip files
+**/*.zip
+
+# Exclude miscellaneous
+**/.angular/cache
+.sass-cache/
+**/connect.lock
+**/coverage
+**/libpeerconnection.log
+testem.log
+**/typings
+
+# Exclude System files
+.DS_Store
+Thumbs.db

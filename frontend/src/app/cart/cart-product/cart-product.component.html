@@ -1,0 +1,19 @@
+<div *ngIf="product">
+    <img src="{{product.url}}">
+    <div class="cart-item-details">
+        <p class="name">{{product.name}}</p>
+        <p>£{{product.price}}</p>
+        <p>{{ item.quantity }} in cart</p>
+    <div>
+        <input 
+            type="number" 
+            name="quantity" 
+            id="quantity" 
+            step="1" 
+            min="0" 
+            class="number-input" 
+            [(ngModel)]="newQuantity" 
+        >
+        <button [disabled]="newQuantity === item.quantity" (click)="onQuantityChange()">Update amount</button>
+    </div>
+</div>

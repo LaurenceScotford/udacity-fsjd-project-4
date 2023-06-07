@@ -1,0 +1,25 @@
+<div class="confirmation-container">
+    <div class="confirmation-header">Thank you for your order!</div>
+    <div class="confirmation-items">
+        <div *ngIf="orderProducts && orderProducts.length">
+            <div class="confirmation-item">
+            The following order is confirmed:
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th><th>Quantity</th>
+                    </tr>
+                    <tr *ngFor="let product of orderProducts">
+                        <td>{{product.name}}</td>
+                        <td>{{product.quantity}}</td>
+                    </tr>
+                </thead>
+            </table>
+            </div>
+            <div class="confirmation-item">Order total: £{{orderTotal}}</div>
+            <div class="confirmation-item">Order placed on: {{orderDateTime | date:'MMM d, y h:mm a'}}</div>
+        </div>
+        <div class="confirmation-item">Please allow 3 to 5 days for delivery.</div>
+        <p class="link"><a routerLink="/product-list"><mat-icon aria-hidden="false" aria-label="Back arrow">arrow_back</mat-icon>Return to the product list</a></p>
+    </div>
+</div>
