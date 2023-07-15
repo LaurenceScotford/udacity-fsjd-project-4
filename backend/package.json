@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "start": "node ./dist/server.js",
-    "build": "tsc copy-files",
+    "build": "npm-run-all tsc copy-files",
     "seed": "node -r dotenv/config ./dist/seed_example_db.js",
     "watch": "npm-run-all -s migrate-up dev",
     "test": "cross-env ENV=test npm-run-all -s migrate-test-up jasmine-tests migrate-test-down --continue-on-error",
