@@ -1,6 +1,6 @@
 # Storefront Backend Project
 
-This is my submission for the second project for the Udacity Full Stack Javascript Developer Nanodegree.
+This is my submission for the second project for the Udacity Full Stack Javascript Developer Nanodegree and part of my solution for the fourth project.
 
 ## About
 
