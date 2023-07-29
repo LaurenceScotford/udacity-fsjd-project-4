@@ -2,47 +2,25 @@ import { PoolConfig, Pool } from 'pg';
 import bcrypt from 'bcryptjs';
 
 const {
-    ENV,
     SUPERUSER_USERNAME,
     SUPERUSER_PASSWORD,
-    SUPERUSER_AUTH_LEVEL
+    SUPERUSER_AUTH_LEVEL,
+    POSTGRES_HOST,
+    POSTGRES_PORT,
+    POSTGRES_DB,
+    POSTGRES_USER,
+    POSTGRES_PASSWORD
 } = process.env;
 
 let config: PoolConfig;
-let postgres_host, postgres_port, postgres_db, postgres_user, postgres_password;
 
-switch ((ENV as string).trim()) {
-    case 'prod':
-        postgres_host = process.env.PROD_POSTGRES_HOST;
-        postgres_port = process.env.PROD_POSTGRES_PORT;
-        postgres_db = process.env.PROD_POSTGRES_DB;
-        postgres_user = process.env.PROD_POSTGRES_USER;
-        postgres_password = process.env.PROD_POSTGRES_PASSWORD;
-        break;
-    case 'dev':
-        postgres_host = process.env.DEV_POSTGRES_HOST;
-        postgres_port = process.env.DEV_POSTGRES_PORT;
-        postgres_db = process.env.DEV_POSTGRES_DB;
-        postgres_user = process.env.DEV_POSTGRES_USER;
-        postgres_password = process.env.DEV_POSTGRES_PASSWORD;
-        break;
-    case 'test':
-        postgres_host = process.env.TEST_POSTGRES_HOST;
-        postgres_port = process.env.TEST_POSTGRES_PORT;
-        postgres_db = process.env.TEST_POSTGRES_DB;
-        postgres_user = process.env.TEST_POSTGRES_USER;
-        postgres_password = process.env.TEST_POSTGRES_PASSWORD;
-        break;
-    default:
-        throw new Error(`The environment ${ENV} is not supported.`)
-}
 
 config = {
-    host: postgres_host,
-    port: parseInt(postgres_port as string),
-    database: postgres_db,
-    user: postgres_user,
-    password: postgres_password
+    host: POSTGRES_HOST,
+    port: parseInt(POSTGRES_PORT as string),
+    database: POSTGRES_DB,
+    user: POSTGRES_USER,
+    password: POSTGRES_PASSWORD
 };
 const db = new Pool(config);
 
