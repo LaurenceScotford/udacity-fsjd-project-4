@@ -108,6 +108,7 @@
     "schematicCollections": [
       "@ngrx/schematics",
       "@ngrx/schematics"
-    ]
+    ],
+    "analytics": false
   }
 }

@@ -32,7 +32,6 @@ export class AuthEffects {
 
     login$ = createEffect(() => this.actions$.pipe(
         ofType(fromActions.login),
-        tap(() => console.log('Create effect ran!')),
         exhaustMap((action) => this.authService.login(action.userData)
             .pipe(
                 map(authToken => fromActions.apiLoginSuccess({
