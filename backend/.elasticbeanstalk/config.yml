@@ -1,0 +1,21 @@
+branch-defaults:
+  default:
+    environment: Udacity-fsjd-project-4-env
+deploy:
+  artifact: ud-fsjd-proj-4.zip
+environment-defaults:
+  Udacity-fsjd-project-4-env:
+    branch: null
+    repository: null
+global:
+  application_name: udacity-fsjd-project-4
+  default_ec2_keyname: ud-fsjd4-back
+  default_platform: Node.js 18 running on 64bit Amazon Linux 2
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: null
+  workspace_type: Application

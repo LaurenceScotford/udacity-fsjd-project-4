@@ -1,9 +1,10 @@
 {
     "scripts": {
-        "frontend:install": "cd frontend && npm install",
         "backend:install": "cd backend && npm install",
-        "frontend:build": "cd frontend && npm run build",
         "backend:build": "cd backend && npm run production-build",
+        "backend:deploy": "cd backend && npm run deploy",
+        "frontend:install": "cd frontend && npm install",
+        "frontend:build": "cd frontend && npm run build",
         "frontend:deploy": "cd frontend && npm run deploy"
     }
 }
