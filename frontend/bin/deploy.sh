@@ -1,0 +1,1 @@
+aws s3 cp ./dist/udacity-fsjd-project-3 s3://udacity-fsjd-project-4-ls --recursive
