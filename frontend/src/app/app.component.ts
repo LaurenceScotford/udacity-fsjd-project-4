@@ -10,6 +10,7 @@ import * as CartActions from './cart/cart.actions';
 import { AuthUser, authLocalStorageName } from './auth/auth.models';
 import { selectUser, selectIsLoggedIn } from './auth/auth.selectors';
 import * as AuthActions from './auth/auth.actions';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import * as AuthActions from './auth/auth.actions';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'udacity-fsjd-project-3';
+  version = environment.version
   currentRoute = 'product-list';
   routerSub$: Subscription | null | undefined;
   cartSub$: Subscription | null | undefined;
