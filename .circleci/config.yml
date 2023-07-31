@@ -19,16 +19,20 @@ jobs:
     steps:
       - node/install
       - checkout
+      - aws-cli/setup
       - run:
-          name: Backend Install"
+          name: Backend Install
           command: "npm run backend:install"
       - run:
-          name: Frontend Install"
+          name: Frontend Install
           command: "npm run frontend:install"
       - run:
-          name: Backend Build"
+          name: Backend Build
           command: "npm run backend:build"
       - run:
-          name: Frontend Build"
+          name: Frontend Build
           command: "npm run frontend:build"
+      - run:
+          name: Frontend Deploy
+          command: "npm run frontend:deploy"
 
