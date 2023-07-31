@@ -36,6 +36,8 @@ yarn-error.log
 .env
 .env.development
 .env.test
+environment.prod.ts
+securitygroup.config
 
 # Exclude built database
 **/data

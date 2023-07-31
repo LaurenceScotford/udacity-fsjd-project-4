@@ -6,17 +6,23 @@
   "scripts": {
     "start": "node ./dist/server.js",
     "build": "npm-run-all tsc copy-files",
+    "production-build": "npm-run-all clean prod-tsc copy-files copy-procfile copy-package-json copy-ebextensions",
     "seed": "node -r dotenv/config ./dist/seed_example_db.js",
     "watch": "npm-run-all -s set-dev-env migrate-up dev",
     "test": "npm-run-all -s set-test-env migrate-up jasmine-tests migrate-down --continue-on-error",
     "tsc": "tsc",
+    "prod-tsc": "tsc -p tsconfig.prod.json",
     "dev": "tsc-watch --onSuccess \"node -r dotenv/config ./dist/server.js\"",
     "jasmine-tests": "jasmine-ts",
     "migrate-up": "db-migrate up",
     "migrate-down": "db-migrate reset",
     "set-test-env": "cp .env.test .env",
     "set-dev-env": "cp .env.development .env",
-    "copy-files": "copyfiles -u 1 src/public/** dist"
+    "clean": "rm -rf dist",
+    "copy-files": "copyfiles -u 1 \"src/public/**/*\" dist",
+    "copy-procfile": "cp Procfile dist/Procfile",
+    "copy-package-json": "cp package.deploy.json dist/package.json",
+    "copy-ebextensions": "copyfiles \".ebextensions**/*\" dist"
   },
   "author": "Laurence Scotford / Udacity",
   "repository": {
