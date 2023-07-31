@@ -29,6 +29,9 @@ jobs:
           name: Frontend Install
           command: "npm run frontend:install"
       - run:
+          name: Frontend Test
+          command: "npm run frontend:test"
+      - run:
           name: Backend Build
           command: "npm run backend:build"
       - run:
