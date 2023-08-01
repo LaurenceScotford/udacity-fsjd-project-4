@@ -23,7 +23,7 @@
     "copy-procfile": "cp Procfile dist/Procfile",
     "copy-package-json": "cp package.deploy.json dist/package.json",
     "copy-ebextensions": "copyfiles \".ebextensions/**/*\" dist",
-    "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh" 
+    "prepare-deploy": "chmod +x ./bin/prepare-deploy.sh && ./bin/prepare-deploy.sh" 
   },
   "author": "Laurence Scotford / Udacity",
   "repository": {
