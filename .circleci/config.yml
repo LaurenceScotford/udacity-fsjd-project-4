@@ -24,24 +24,25 @@ jobs:
       - aws-eb/setup
       - run:
           name: Backend Install
-          command: "npm run backend:install"
+          command: npm run backend:install
       - run:
           name: Frontend Install
-          command: "npm run frontend:install"
+          command: npm run frontend:install
       - run:
           name: Backend Build
-          command: "npm run backend:build"
+          command: npm run backend:build
       - run:
           name: Frontend Build
-          command: "npm run frontend:build"
+          command: npm run frontend:build
       - run:
           name: Backend Deploy
-          command: "npm run backend:prepare-deploy"
-          command: eb deploy --env-vars "API_PORT=$API_PORT,BCRYPT_PASSWORD=$BCRYPT_PASSWORD, |
-          DEFAULT_POSTGRES_PORT=$DEFAULT_POSTGRES_PORT,DEFAULT_USER_AUTHLEVEL=$DEFAULT_USER_AUTHLEVEL, |
-          POSTGRES_DB=$POSTGRES_DB,POSTGRES_HOST=$POSTGRES_HOST,POSTGRES_PASSWORD=$POSTGRES_PASSWORD, |
-          POSTGRES_PORT=$POSTGRES_PORT,POSTGRES_USER=$POSTGRES_USER,SALT_ROUNDS=$SALT_ROUNDS, |
-          SUPERUSER_AUTH_LEVEL=$SUPERUSER_AUTH_LEVEL,SUPERUSER_PASSWORD=$SUPERUSER_PASSWORD, |
+          command: npm run backend:prepare-deploy
+          command: |
+          eb deploy --env-vars "API_PORT=$API_PORT,BCRYPT_PASSWORD=$BCRYPT_PASSWORD,
+          DEFAULT_POSTGRES_PORT=$DEFAULT_POSTGRES_PORT,DEFAULT_USER_AUTHLEVEL=$DEFAULT_USER_AUTHLEVEL,
+          POSTGRES_DB=$POSTGRES_DB,POSTGRES_HOST=$POSTGRES_HOST,POSTGRES_PASSWORD=$POSTGRES_PASSWORD,
+          POSTGRES_PORT=$POSTGRES_PORT,POSTGRES_USER=$POSTGRES_USER,SALT_ROUNDS=$SALT_ROUNDS,
+          SUPERUSER_AUTH_LEVEL=$SUPERUSER_AUTH_LEVEL,SUPERUSER_PASSWORD=$SUPERUSER_PASSWORD,
           SUPERUSER_USERNAME=$SUPERUSER_USERNAME,TOKEN_EXPIRY=$TOKEN_EXPIRY,TOKEN_SECRET=$TOKEN_SECRET"
       - run:
           name: Frontend Deploy
