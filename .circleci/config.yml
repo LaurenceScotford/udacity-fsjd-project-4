@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Backend Deploy
           command: npm run backend:prepare-deploy
-          command: |
+          command: >
           eb deploy --env-vars "API_PORT=$API_PORT,BCRYPT_PASSWORD=$BCRYPT_PASSWORD,
           DEFAULT_POSTGRES_PORT=$DEFAULT_POSTGRES_PORT,DEFAULT_USER_AUTHLEVEL=$DEFAULT_USER_AUTHLEVEL,
           POSTGRES_DB=$POSTGRES_DB,POSTGRES_HOST=$POSTGRES_HOST,POSTGRES_PASSWORD=$POSTGRES_PASSWORD,
