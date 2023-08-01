@@ -1,49 +1,26 @@
 # Udacity Full Stack JavaScript Developer Nanodegree - Project 4 Submission
 
-**NOTE:** Please use Markdown preview to see the embedded images - or you can view them individually within the images folder.
+This repository contains my submission for Project 4 of the Udacity Full Stack JavaScript Developer Nanodegree. This is a full stack application to create an online store.
 
-## Architecture
-![Project architecture](images/LaurenceScotfordArchitecture.png)
+Please see the articles in the **documentation** folder for further details. You can use the index below to open them.
 
-I have used modified and integrated versions of my Project 2 (Backend API) and Project 3 (Frontend app). The frontend app was built with Angular and ngrx to handle application state and messaging between modules. The built app is stored in an AWS S3 bucket configured as a static website (see images below):
+## Project overview articles
+- [Project Architecture](documentation/project_architecture.md)
+- [Frontend App Features](documentation/frontend_app_features.md)
+- [Backend API Requirements](documentation/backend_api_project_requirements.md)
 
-![Built objects in S3](images/LaurenceScotfordsFrontendAppS3Objects.png)
-![S3 bucket configured as static website](images/LaurenceScotfordsFrontendAppS3Config.png)
+## How to set up and deploy the project
+- [How to Set Up the Project](documentation/how_to_set_up_the_project.md)
+- [Deployment Pipeline](documentation/deployment_pipeline.md)
 
-This app sends requests (via Port 3000) to an API created as a Node/Express app which is running on AWS EC2 instances. This app is managed and deployed using Elastic Beanstalk.
+## How to access and use the project
+- [How to Access the Deployed Project](documentation/how_to_access_the_deployed_project.md)
 
-Authorisation is handled between the frontend app and the API through the use of JavaScript Web Tokens (JWTs). Otherwise, this is a standard REST API.
+## Implementation details
+- [API and Database Data Structure](documentation/API_and_DB_data_structure.md)
+- [API Operations and Endpoints](documentation/API_operations_and_endpoints.md)
+- [Authentication and Authorisation](documentation/authentication_and_authorisation.md)
+- [Third Party Libraries and Resources](documentation/third_party_libraries_and_resources.md)
 
-![The application running in Elastic Beanstalk](images/LaurenceScotfordAPIElasticBeanstalk.png)
-![The application's environment variables configured in Elastic Beanstalk](images/LaurenceScotfordAPIElasticBeanstalkConfig.png)
-
-The API stores and retrieves data in a Postgres database running in AWS RDS.
-![The RDS database up and running](images/LaurenceScotfordDatabase.png)
-
-You can find more technical details about the frontend and backend apps by referring to the README files in the respective folders of this repository.
-
-## CD/CI Pipeline
-App deployment is managed using the CircleCI service.
-
-![The deployment pipeline](images/LaurenceScotfordPipeline.png)
-When a new version is pushed to the repository, the pipeline sets up some essential software - Node, the AWS CLI and EB CLI, then completes a checkout of the code before installing, building and deploying the apps.
-
-The frontend app is deployed using a CLI command to upload the build files to the AWS S3 bucket. The backend app is deployed using an EB CLI command to upload a zipfile of the build files to the EB environment, where it is unzipped and deployed.
-
-![A green run in CircleCI](images/LaurenceScotfordCircleCIGreen.png)
-
-## Running the app
-You can try the deployed app by visiting: [http://udacity-fsjd-project-4-ls.s3-website-us-east-1.amazonaws.com/](http://udacity-fsjd-project-4-ls.s3-website-us-east-1.amazonaws.com/)
-
-When you first visit the app you will see the products page with the available products in the store. You are free to browse and add items to your cart without registering or logging in, but you won't be able to complete an order until you do register and/or login.
-
-By all means register a new account (there is no email verification in this version, so you can just use a fake email). Alternatively, you can login as an existing account:
-
-```
-username: testuser
-password: shopper123
-```
-
-After you have logged in, if you go to the Cart screen, you can now complete your order. Please note the credit card field will happily accept any 16 digit number, so there is no need to use a real credit card.
-
-Currently there is no admin app for viewing or processing orders, so any new orders will just sit as unfulfilled orders in the database forever. Although, it wasn't a requirement for this course, I may build an admin backend later for my own satisfaction. 
+## Future development
+- [Notes on Future Improvements](documentation/notes_on_future_improvements.md)
