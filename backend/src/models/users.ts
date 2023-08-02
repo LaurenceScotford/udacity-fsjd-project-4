@@ -164,6 +164,7 @@ export class UserStore {
         const conn = await db.connect();
         const sql = 'SELECT * FROM users WHERE username = ($1)';
         const result = await conn.query(sql, [username]);
+        conn.release();
         return result.rowCount === 0;
     }
 
@@ -172,6 +173,7 @@ export class UserStore {
             const conn = await db.connect();
             const sql = 'SELECT id, auth_level, password_digest FROM users WHERE username = ($1)';
             const result = await conn.query(sql, [username]);
+            conn.release();
 
             if (result.rows.length) {
                 const user = result.rows[0];
@@ -200,6 +202,7 @@ export class UserStore {
         const conn = await db.connect();
         const sql = 'SELECT auth_level FROM users WHERE id = ($1)';
         const result = await conn.query(sql, [id]);
+        conn.release();
         return result.rows[0].auth_level == SUPERUSER_AUTH_LEVEL;
     }
 }
