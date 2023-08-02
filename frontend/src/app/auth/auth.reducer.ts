@@ -22,7 +22,7 @@ export const reducer = createReducer(
   on(
     AuthActions.login,
     AuthActions.autoLogin,
-    (state) => {
+    (state): AuthState => {
       return {
         ...state,
         status: 'loading'
@@ -31,7 +31,7 @@ export const reducer = createReducer(
   ),
   on(
     AuthActions.autoLoginSuccess,
-    (state, action) => {
+    (state, action): AuthState => {
       return {
         ...state,
         authUser: {
@@ -45,7 +45,7 @@ export const reducer = createReducer(
   ),
   on(
     AuthActions.autoLoginFailure,
-    (state) => {
+    (state): AuthState => {
       return {
         ...state,
         authUser: {
@@ -58,7 +58,7 @@ export const reducer = createReducer(
   ),
   on(
     AuthActions.apiLoginSuccess,
-    (state, action) => {
+    (state, action): AuthState => {
       return {
         ...state,
         authUser: {
@@ -72,7 +72,7 @@ export const reducer = createReducer(
   ),
   on(
     AuthActions.apiLoginFailure,
-    (state, action) => {
+    (state): AuthState => {
       return {
         ...state,
         authUser: {
@@ -87,7 +87,7 @@ export const reducer = createReducer(
   on(
     AuthActions.logout,
     AuthActions.autoLogout,
-    (state) => {
+    (state): AuthState => {
       return {
         ...state,
         authUser: {
@@ -101,7 +101,7 @@ export const reducer = createReducer(
   ),
   on(
     AuthActions.apiSetUsernameAvailable,
-    (state) => {
+    (state): AuthState => {
       return {
         ...state,
         usernameAvailable: true
@@ -110,7 +110,7 @@ export const reducer = createReducer(
   ),
   on(
     AuthActions.apiClearUsernameAvailable,
-    (state) => {
+    (state): AuthState => {
       return {
         ...state,
         usernameAvailable: false

@@ -3,7 +3,7 @@ import {
     on
 } from '@ngrx/store';
 
-import { OrderState, Order } from './order.models';
+import { OrderState } from './order.models';
 import * as OrderActions from './order.actions';
 
 export const orderFeatureKey = 'order';

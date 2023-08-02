@@ -20,10 +20,7 @@ config = {
     port: parseInt(POSTGRES_PORT as string),
     database: POSTGRES_DB,
     user: POSTGRES_USER,
-    password: POSTGRES_PASSWORD,
-    ssl: {
-        rejectUnauthorized: false
-    }
+    password: POSTGRES_PASSWORD
 };
 const db = new Pool(config);
 

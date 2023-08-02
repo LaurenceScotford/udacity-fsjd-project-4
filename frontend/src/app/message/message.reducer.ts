@@ -3,7 +3,7 @@ import {
     on
 } from '@ngrx/store';
 
-import { MessageState, Message } from './message.models';
+import { MessageState } from './message.models';
 import * as MessageActions from './message.actions';
 
 export const messageFeatureKey = 'message';
@@ -20,7 +20,7 @@ export const messageReducer = createReducer(
     initialState,
     on(
         MessageActions.setMessage,
-        (state, action) => {
+        (state, action): MessageState => {
             return {
                 ...state,
                 message: {
@@ -33,7 +33,7 @@ export const messageReducer = createReducer(
     ),
     on(
         MessageActions.clearMessage,
-        (state, action) => {
+        (state): MessageState => {
             return {
                 ...state,
                 message: {

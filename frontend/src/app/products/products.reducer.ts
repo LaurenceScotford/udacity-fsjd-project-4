@@ -17,7 +17,7 @@ export const productsReducer = createReducer(
     initialState,
     on(
         ProductsActions.loadProducts,
-        (state, _action) => {
+        (state, _action): ProductsState => {
             return {
                 ...state,
                 status: 'loading'
@@ -26,13 +26,13 @@ export const productsReducer = createReducer(
     ),
     on(
         ProductsActions.productsLoaded,
-        (state, action) => {
+        (state, action): ProductsState => {
             return adapter.setAll(action.products, { ...state, status: 'success' });
         }
     ),
     on(
         ProductsActions.loadProductsFailed,
-        (state, action) => {
+        (state): ProductsState => {
             return {
                 ...state,
                 status: 'error'
